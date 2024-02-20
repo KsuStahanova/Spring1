@@ -1,0 +1,106 @@
+//Класс Order 
+public class Order {
+    private int orderId;
+    private double totalAmount;
+    private Date orderDate;
+}
+
+
+//Класс Schet
+public class Schet {
+    private int invoiceId;
+    private double amount;
+    private Date SchetDate;
+}
+
+//Класс Document
+public class PaymentDocument {
+    private int DocumentId;
+    private double DocumentAmount;
+    private Date DocumentDate;
+}
+
+//Класс Накладная
+public class Waybill {
+    private int waybillId;
+    private String products;
+    private Date shippingDate;
+}
+
+//Интерфейс DocumentService
+public interface DocumentService {
+    public void createOrder(Order order);
+    public void createInvoice(Invoice invoice);
+    public void createPaymentDocument(PaymentDocument paymentDocument);
+    public void createWaybill(Waybill waybill);
+    public void displayAllDocuments();
+}
+
+//Pеализация DocumentServiceImpl
+@Service
+public class DocumentServiceImpl implements DocumentService {
+    private List<Order> orders = new ArrayList<>();
+    private List<Schet> Schets = new ArrayList<>();
+    private List<Document> tDocuments = new ArrayList<>();
+    private List<Waybill> waybills = new ArrayList<>();
+
+
+    @Override
+    public void createOrder(Order order) {
+        orders.add(order);
+    }
+
+
+    @Override
+    public void createInvoice(Invoice invoice) {
+        Schet.add(Schets);
+    }
+
+
+    @Override
+    public void createDocument(Document Document) {
+        Documents.add(Document);
+    }
+
+
+    @Override
+    public void createWaybill(Waybill waybill) {
+        waybills.add(waybill);
+    }
+
+
+    @Override
+    public void displayAllDocuments() {
+        
+    }
+}
+
+
+//Класс приложения для загрузки
+public class MainApp {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        
+        DocumentService documentService = context.getBean(DocumentService.class);
+        
+        // Создание и добавление документов:
+        Order order = new Order();
+        Schet Schet = new Schet();
+        Document Document = new Document();
+        Waybill waybill = new Waybill();
+        
+        documentService.createOrder(order);
+        documentService.createSchet(Schet);
+        documentService.createDocument(Document);
+        documentService.createWaybill(waybill);
+        
+        
+        documentService.displayAllDocuments();
+        
+        context.close();
+    }
+}
+
+
+
+
