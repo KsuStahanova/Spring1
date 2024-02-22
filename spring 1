@@ -83,7 +83,7 @@ public class MainApp {
         
         DocumentService documentService = context.getBean(DocumentService.class);
         
-        // Создание и добавление документов:
+        // Создание и добавление докумен
         Order order = new Order();
         Schet Schet = new Schet();
         Document Document = new Document();
@@ -99,7 +99,7 @@ public class MainApp {
         
         context.close();
     }
-}
+
 
 
 
